@@ -20,7 +20,7 @@ function App() {
 
   return (
     <Container className='team-container' fluid={true}>
-      <Form />
+      <Form addMember={addMember}/>
     </Container>
 
   );
