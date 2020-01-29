@@ -3,25 +3,35 @@ import { useState, useEffect } from 'react';
 import { Container } from 'reactstrap';
 import './App.css';
 
-import Form from './Form'
+import Form from './Components/Form';
+import MemberCard from './Components/MemberCard';
 
 function App() {
-  const [teamMembers, setTeamMembers] = useState([{}])
-  const addMember = member => {
+  const [teamMembers, setTeamMembers] = useState([
+    {
+      id:1,
+      name: 'Zach Stack',
+      email: 'stackz.personal@gmail.com',
+      role: 'Doorstop'
+      
+
+    }])
+  const addMember = person => {
     const newMember = {
       id: Date.now(),
-      name: member.name,
-      email: member.email,
-      role: member.role
+      name: person.name,
+      email: person.email,
+      role: person.role
     };
     setTeamMembers([...teamMembers, newMember])
   };
 
 
   return (
-    <Container className='team-container' fluid={true}>
+    <div>
       <Form addMember={addMember}/>
-    </Container>
+      <MemberCard member={teamMembers}/>
+    </div>
 
   );
 }
