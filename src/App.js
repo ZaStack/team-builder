@@ -3,8 +3,10 @@ import { useState, useEffect } from 'react';
 import { Container } from 'reactstrap';
 import './App.css';
 
+import Form from './Form'
+
 function App() {
-  const [teamMember, setTeamMember] = useState([])
+  const [teamMembers, setTeamMembers] = useState([{}])
   const addMember = member => {
     const newMember = {
       id: Date.now(),
@@ -12,13 +14,13 @@ function App() {
       email: member.email,
       role: member.role
     };
-    setTeamMember([...teamMember, newMember])
+    setTeamMembers([...teamMembers, newMember])
   };
 
 
   return (
     <Container className='team-container' fluid={true}>
-      
+      <Form />
     </Container>
 
   );
